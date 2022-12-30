@@ -28,7 +28,7 @@ const createNewComponent = asyncHandler (async (req, res) => {
     if (component) {
         res.status(201).json({message: `New component ${name} created`})
     } else {
-        res.status(400).json({message: "Invalid user data received"})
+        res.status(400).json({message: "Invalid component data received"})
     }
     
 

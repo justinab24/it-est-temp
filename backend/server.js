@@ -29,6 +29,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 
 app.use('/', require('./routes/root'))
 app.use('/components', require('./routes/compRoutes'))
+app.use('/roles', require('./routes/roleRoutes'))
 
 app.all('*', (req, res) => {
     res.status(404)

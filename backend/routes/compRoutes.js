@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const adminController = require('../controllers/compController')
+const compController = require('../controllers/compController')
 
 router.route('/')
-    .get(adminController.getAllComponents)
-    .post(adminController.createNewComponent)
-    .patch(adminController.updateComponent)
-    .delete(adminController.deleteComponent)
+    .get(compController.getAllComponents)
+    .post(compController.createNewComponent)
+    .patch(compController.updateComponent)
+    .delete(compController.deleteComponent)
 
 module.exports = router

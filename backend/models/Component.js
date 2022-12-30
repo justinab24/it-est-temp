@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const compSchema = new mongoose.Schema({
+    
     name: {
         type: String,
         required: true
