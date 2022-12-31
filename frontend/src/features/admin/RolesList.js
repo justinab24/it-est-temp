@@ -1,15 +1,15 @@
-import { useGetComponentsQuery } from "./compsApiSlice"
-import  Component  from './Component'
+import { useGetRolesQuery } from "./rolesApiSlice"
+import  Role  from './Role'
 
-const CompsList = () => {
+const RolesList = () => {
 
     const {
-        data: comps,
+        data: roles,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetComponentsQuery()
+    } = useGetRolesQuery()
 
     let content
 
@@ -24,10 +24,10 @@ const CompsList = () => {
 
     if(isSuccess) {
 
-        const { ids } = comps
+        const { ids } = roles
 
         const tableContent = ids?.length
-             ? ids.map(componentId => <Component key={componentId} componentId={componentId} />)
+             ? ids.map(roleId => <Role key={roleId} roleId={roleId} />)
              : null
 
         content = ( 
@@ -36,10 +36,6 @@ const CompsList = () => {
                     <tr>
                         <th scope="col" className="table__th comp__name">Name</th>
                         <th scope="col" className="table__th comp__rate">Rate</th>
-                        <th scope="col" className="table__th comp__lowval">Low</th>
-                        <th scope="col" className="table__th comp__medval">Medium</th>
-                        <th scope="col" className="table__th comp__highval">High</th>
-                        <th scope="col" className="table__th comp__vhighval">Very High</th>
                         <th scope="col" className="table__th comp__edit">Edit</th>
                     </tr>
                 </thead>
@@ -54,4 +50,4 @@ const CompsList = () => {
 
 }
 
-export default CompsList
+export default RolesList

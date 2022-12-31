@@ -312,4 +312,9 @@ table, tr, th, td {
   .form__action-buttons {
     position: static;
   }
-} 
+}
+
+#addCompTable, #addRoleTable {
+  color: black;
+  border: 2px solid white;
+}
