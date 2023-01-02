@@ -1,7 +1,7 @@
-import CompsList from './CompsList'
-import RolesList from './RolesList'
-import AddComponent from './AddComponent'
-import AddRole from './AddRole'
+import CompsList from '../features/admin/compStuff/CompsList'
+import RolesList from '../features/admin/roleStuff/RolesList'
+import AddComponent from '../features/admin/compStuff/AddComponent'
+import AddRole from '../features/admin/roleStuff/AddRole'
 
 const Admin = () => {
 

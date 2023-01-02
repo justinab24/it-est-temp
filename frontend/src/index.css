@@ -313,8 +313,3 @@ table, tr, th, td {
     position: static;
   }
 }
-
-#addCompTable, #addRoleTable {
-  color: black;
-  border: 2px solid white;
-}

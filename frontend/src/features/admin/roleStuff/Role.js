@@ -12,13 +12,13 @@ const Role = ({ roleId }) => {
 
     if(role) {
 
-        const handleEdit = () => navigate(`/admin/roles/${roleId}`)
+        const handleEdit = () => navigate(`/admin/view/roles/${roleId}`)
 
         return (
             <tr className="table__row role">
-                <td className={"table__cell"}>{role.name}</td>
-                <td className={"table__cell"}>{role.rate.$numberDecimal}</td>
-                <td className={"table__cell"}>
+                <td className={"tableCell"}>{role.name}</td>
+                <td className={"tableCell"}>{role.rate.$numberDecimal}</td>
+                <td className={"tableCell"}>
                     <button
                         className="icon-button table__button"
                         onClick={handleEdit}

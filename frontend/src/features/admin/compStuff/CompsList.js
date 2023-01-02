@@ -31,16 +31,16 @@ const CompsList = () => {
              : null
 
         content = ( 
-            <table className="table table--components">
+            <table style={{width:"100%"}} className="table table--components">
                 <thead className="table__thead">
                     <tr>
-                        <th scope="col" className="table__th comp__name">Name</th>
-                        <th scope="col" className="table__th comp__rate">Rate</th>
-                        <th scope="col" className="table__th comp__lowval">Low</th>
-                        <th scope="col" className="table__th comp__medval">Medium</th>
-                        <th scope="col" className="table__th comp__highval">High</th>
-                        <th scope="col" className="table__th comp__vhighval">Very High</th>
-                        <th scope="col" className="table__th comp__edit">Edit</th>
+                        <th style={{width:"10%"}} scope="col" className="table__th comp__name">Name</th>
+                        <th style={{width:"10%"}} scope="col" className="table__th comp__rate">Rate</th>
+                        <th style={{width:"10%"}} scope="col" className="table__th comp__lowval">Low</th>
+                        <th style={{width:"10%"}} scope="col" className="table__th comp__medval">Medium</th>
+                        <th style={{width:"10%"}} scope="col" className="table__th comp__highval">High</th>
+                        <th style={{width:"10%"}} scope="col" className="table__th comp__vhighval">Very High</th>
+                        <th style={{width:"10%"}} scope="col" className="table__th comp__edit">Edit</th>
                     </tr>
                 </thead>
                 <tbody>

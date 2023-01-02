@@ -1,5 +1,5 @@
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
-import { apiSlice } from "../../app/api/apiSlice";
+import { apiSlice } from "../../../app/api/apiSlice";
 
 const compsAdapter = createEntityAdapter({})
 
@@ -28,12 +28,49 @@ export const compsApiSlice = apiSlice.injectEndpoints({
                     ]
                 } else return [{type: 'Component', id: 'LIST'}]
             }
+        }),
+        addNewComponent: builder.mutation({
+            query: initialComponentData => ({
+                url: '/components',
+                method: 'POST',
+                body: {
+                    ...initialComponentData
+                }
+            }),
+            invalidatesTags: [
+                { type: 'Component', id: "LIST" }
+            ]
+        }),
+        updateComponent: builder.mutation({
+            query: initialComponentData => ({
+                url: '/components',
+                method: 'PATCH',
+                body: {
+                    ...initialComponentData
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Component', id: arg.id }
+            ]
+        }),
+        deleteComponent: builder.mutation({
+            query: ({ id }) => ({
+                url: '/component',
+                method: "DELETE",
+                body: { id }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Component', id: arg.id }
+            ]
         })
     })
 })
 
 export const {
     useGetComponentsQuery,
+    useAddNewComponentMutation,
+    useDeleteComponentMutation,
+    useUpdateComponentMutation,
 } = compsApiSlice
 
 export const selectCompsResult = compsApiSlice.endpoints.getComponents.select()

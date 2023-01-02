@@ -16,13 +16,13 @@ const Component = ({ componentId }) => {
 
         return (
             <tr className="table__row component">
-                <td className={"table__cell"}>{component.name}</td>
-                <td className={"table__cell"}>{component.rate.$numberDecimal}</td>
-                <td className={"table__cell"}>{component.lowval}</td>
-                <td className={"table__cel "}>{component.medval}</td>
-                <td className={"table__cell"}>{component.highval}</td>
-                <td className={"table__cell"}>{component.vhighval}</td>
-                <td className={"table__cell"}>
+                <td className={"tableCell"}>{component.name}</td>
+                <td className={"tableCell"}>{component.rate.$numberDecimal}</td>
+                <td className={"tableCell"}>{component.lowval}</td>
+                <td className={"tableCell "}>{component.medval}</td>
+                <td className={"tableCell"}>{component.highval}</td>
+                <td className={"tableCell"}>{component.vhighval}</td>
+                <td className={"tableCell"}>
                     <button
                         className="icon-button table__button"
                         onClick={handleEdit}

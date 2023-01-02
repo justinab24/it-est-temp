@@ -1,5 +1,5 @@
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
-import { apiSlice } from "../../app/api/apiSlice";
+import { apiSlice } from "../../../app/api/apiSlice";
 
 const rolesAdapter = createEntityAdapter({})
 
@@ -12,7 +12,6 @@ export const rolesApiSlice = apiSlice.injectEndpoints({
             validateStatus: (response, result) => {
                 return response.status(200) && !result.isError
             },
-            keepUnusedDataFor: 5,
             transformResponse: responseData => {
                 const loadedRoles = responseData.map(role => {
                     role.id = role._id
@@ -28,12 +27,49 @@ export const rolesApiSlice = apiSlice.injectEndpoints({
                     ]
                 } else return [{type: 'Role', id: 'LIST'}]
             }
+        }),
+        addNewRole: builder.mutation({
+            query: initialRoleData => ({
+                url: '/roles',
+                method: 'POST',
+                body: {
+                    ...initialRoleData
+                }
+            }),
+            invalidatesTags: [
+                { type: 'Role', id: "LIST" }
+            ]
+        }),
+        updateRole: builder.mutation({
+            query: initialRoleData => ({
+                url: '/roles',
+                method: 'PATCH',
+                body: {
+                    ...initialRoleData
+                }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Role', id: arg.id }
+            ]
+        }),
+        deleteRole: builder.mutation({
+            query: ({ id }) => ({
+                url: '/roles',
+                method: "DELETE",
+                body: { id }
+            }),
+            invalidatesTags: (result, error, arg) => [
+                { type: 'Role', id: arg.id }
+            ]
         })
     })
 })
 
 export const {
     useGetRolesQuery,
+    useAddNewRoleMutation,
+    useUpdateRoleMutation,
+    useDeleteRoleMutation,
 } = rolesApiSlice
 
 export const selectRolesResult = rolesApiSlice.endpoints.getRoles.select()
