@@ -59,7 +59,7 @@ const deleteEntry = asyncHandler (async (req, res) => {
         return res.status(400).json({message: 'entry id required'})
     }
 
-    const entry = await Component.findById(id).exec()
+    const entry = await Entry.findById(id).exec()
 
     if(!entry) {
         return res.status(400).json({message: "entry not found"})

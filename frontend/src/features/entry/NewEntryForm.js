@@ -51,6 +51,7 @@ const NewEntryForm = ({ components, roles}) => {
     const onSaveEntryClicked = async (e) => {
         const rate = roles.entities[roleId].rate.$numberDecimal
         const component = components.entities[componentId]
+        const compRate = components.entities[componentId].rate.$numberDecimal
         let compComplexity
         if (complexity === "low") {
             compComplexity = component.lowval
@@ -61,9 +62,7 @@ const NewEntryForm = ({ components, roles}) => {
         } else {
             compComplexity = component.vhighval
         }
-        console.log(rate)
-        console.log(compComplexity)
-        const total = rate * compComplexity * count
+        const total = (compRate * compComplexity * count) + (rate * compComplexity * count)
         console.log(total)
         e.preventDefault()
         if (canSave) {

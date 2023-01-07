@@ -41,7 +41,7 @@ export const entriesApiSlice = apiSlice.injectEndpoints({
                 { type: 'Entry', id: "LIST" }
             ]
         }),
-        updateEntries: builder.mutation({
+        updateEntry: builder.mutation({
             query: initialEntryData => ({
                 url: '/',
                 method: 'PATCH',
