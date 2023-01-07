@@ -1,6 +1,6 @@
-import { store } from "../../App/store";
-import { rolesApiSlice } from "../admin/rolesApiSlice";
-import { compsApiSlice } from "../admin/compsApiSlice";
+import { store } from "../../app/store";
+import { rolesApiSlice } from "../admin/roleStuff/rolesApiSlice";
+import { compsApiSlice } from "../admin/compStuff/compsApiSlice";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
@@ -12,8 +12,8 @@ const Prefetch = () => {
 
         return () => {
             console.log('unsubscribing')
-            notes.unsubscribe()
-            users.unsubscribe()
+            components.unsubscribe()
+            roles.unsubscribe()
         }
     }, [])
 

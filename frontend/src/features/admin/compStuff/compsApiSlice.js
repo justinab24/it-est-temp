@@ -1,9 +1,9 @@
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import { apiSlice } from "../../../app/api/apiSlice";
 
-const compsAdapter = createEntityAdapter({})
+const componentsAdapter = createEntityAdapter({})
 
-const initialState = compsAdapter.getInitialState()
+const initialState = componentsAdapter.getInitialState()
 
 export const compsApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
@@ -12,19 +12,22 @@ export const compsApiSlice = apiSlice.injectEndpoints({
             validateStatus: (response, result) => {
                 return response.status(200) && !result.isError
             },
-            keepUnusedDataFor: 5,
             transformResponse: responseData => {
                 const loadedComps = responseData.map(component => {
                     component.id = component._id
                     return component
                 });
-                return compsAdapter.setAll(initialState, loadedComps)
+                return componentsAdapter.setAll(initialState, loadedComps)
             },
             providesTags: (result, error, arg) => {
                 if (result?.ids) {
                     return [
                         {type: 'Component', id: 'LIST'},
                         ...result.ids.map(id => ({type: 'Component', id}))
+                    ]
+                } if (result?.names) {
+                    return [
+                        {type: 'Component', name: 'LIST'}
                     ]
                 } else return [{type: 'Component', id: 'LIST'}]
             }
@@ -73,15 +76,17 @@ export const {
     useUpdateComponentMutation,
 } = compsApiSlice
 
-export const selectCompsResult = compsApiSlice.endpoints.getComponents.select()
+export const selectComponentsResult = compsApiSlice.endpoints.getComponents.select()
 
-const selectCompsData = createSelector(
-    selectCompsResult,
-    compsResult => compsResult.data
+const selectComponentsData = createSelector(
+    selectComponentsResult,
+    componentsResult => componentsResult.data
 )
 
+    
+
 export const {
-    selectAll: selectAllComps,
-    selectById: selectCompById,
-    selectIds: selectCompIds
-} = compsAdapter.getSelectors(state => selectCompsData(state) ?? initialState)
+    selectAll: selectAllComponents,
+    selectById: selectComponentById,
+    selectIds: selectComponentIds
+} = componentsAdapter.getSelectors(state => selectComponentsData(state) ?? initialState)

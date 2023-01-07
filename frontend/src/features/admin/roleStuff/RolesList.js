@@ -9,7 +9,11 @@ const RolesList = () => {
         isSuccess,
         isError,
         error
-    } = useGetRolesQuery()
+    } = useGetRolesQuery(undefined, {
+        pollingInterval: 600000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
+    })
 
     let content
 

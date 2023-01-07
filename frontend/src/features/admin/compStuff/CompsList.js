@@ -9,7 +9,13 @@ const CompsList = () => {
         isSuccess,
         isError,
         error
-    } = useGetComponentsQuery()
+    } = useGetComponentsQuery(undefined , {
+        pollingInterval: 60000,
+        refetchOnFocus: true,
+        refetchOnMountOrArgChange: true
+    })
+
+    console.log(comps)
 
     let content
 

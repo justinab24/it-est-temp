@@ -31,7 +31,6 @@ const createNewComponent = asyncHandler (async (req, res) => {
         res.status(400).json({message: "Invalid component data received"})
     }
     
-
 })
 
 const updateComponent = asyncHandler (async (req, res) => {

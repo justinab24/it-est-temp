@@ -3,23 +3,23 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
-import { selectCompById } from './compsApiSlice'
+import { selectComponentById } from './compsApiSlice'
 
 const Component = ({ componentId }) => {
-    const component = useSelector(state => selectCompById(state, componentId))
+    const component = useSelector(state => selectComponentById(state, componentId))
 
     const navigate = useNavigate()
 
     if(component) {
 
-        const handleEdit = () => navigate(`/admin/components/${componentId}`)
+        const handleEdit = () => navigate(`/admin/view/components/${componentId}`)
 
         return (
             <tr className="table__row component">
                 <td className={"tableCell"}>{component.name}</td>
                 <td className={"tableCell"}>{component.rate.$numberDecimal}</td>
                 <td className={"tableCell"}>{component.lowval}</td>
-                <td className={"tableCell "}>{component.medval}</td>
+                <td className={"tableCell"}>{component.medval}</td>
                 <td className={"tableCell"}>{component.highval}</td>
                 <td className={"tableCell"}>{component.vhighval}</td>
                 <td className={"tableCell"}>
