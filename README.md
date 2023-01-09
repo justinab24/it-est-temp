@@ -4,7 +4,7 @@ This estimation template serves to calculate the total cost and time needed for 
 
 HOW IT WORKS:
   
-  An admin can login and predefine components and roles
+  An admin can login and predefine components and roles:
     
       With components, the admin can specify the name, rate, and how much time is needed to build them for different complexities (ie. low, medium, high)
       
