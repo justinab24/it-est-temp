@@ -39,6 +39,7 @@ const EntryList = () => {
                         <th style={{width:"10%"}} scope="col" className="table__th comp__medval">Count</th>
                         <th style={{width:"10%"}} scope="col" className="table__th comp__highval">Role</th>
                         <th style={{width:"10%"}} scope="col" className="table__th comp__highval">Total Cost</th>
+                        <th style={{width:"10%"}} scope="col" className="table__th comp__highval">Total Hours</th>
                         <th style={{width:"10%"}} scope="col" className="table__th comp__edit">Edit</th>
                     </tr>
                 </thead>

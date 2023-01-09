@@ -62,11 +62,12 @@ const NewEntryForm = ({ components, roles}) => {
         } else {
             compComplexity = component.vhighval
         }
-        const total = (compRate * compComplexity * count) + (rate * compComplexity * count)
+        const total = ((compRate * compComplexity * count) + (rate * compComplexity * count)).toFixed(2)
+        const totalTime = count * compComplexity
         console.log(total)
         e.preventDefault()
         if (canSave) {
-            await addNewEntry({ comp: componentId, description, complexity, count, role: roleId, total})
+            await addNewEntry({ comp: componentId, description, complexity, count, role: roleId, total, totalTime})
         }
     }
 

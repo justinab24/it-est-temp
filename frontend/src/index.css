@@ -319,3 +319,9 @@ table, tr, th, td {
   border: 2px solid white;
   table-layout: fixed;
 }
+
+.formatEntryAndTotal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 200px;
+}

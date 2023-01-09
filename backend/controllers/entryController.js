@@ -10,12 +10,12 @@ const getAllEntries = asyncHandler (async (req, res) => {
 })
 
 const createNewEntry = asyncHandler (async (req, res) => {
-    const { comp, description, complexity, count, role, total } = req.body
-    if (!comp|| !description || !complexity || !count || !role || !total) {
+    const { comp, description, complexity, count, role, total, totalTime } = req.body
+    if (!comp|| !description || !complexity || !count || !role || !total || !totalTime) {
         return res.status(400).json({message: "All fields are required"})
     }
 
-    const entryObject = { comp, description, complexity, count, role, total }
+    const entryObject = { comp, description, complexity, count, role, total, totalTime }
 
     const entry = await Entry.create(entryObject)
 
@@ -28,8 +28,8 @@ const createNewEntry = asyncHandler (async (req, res) => {
 })
 
 const updateEntry = asyncHandler (async (req, res) => {
-    const { id, comp, description, complexity, count, role, total } = req.body
-    if (!comp|| !description || !complexity || !count || !role || !total) {
+    const { id, comp, description, complexity, count, role, total, timeTotal} = req.body
+    if (!comp|| !description || !complexity || !count || !role || !total || !timeTotal) {
         return res.status(400).json({message: "All fields are required"})
     }
 

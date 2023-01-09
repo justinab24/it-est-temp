@@ -27,6 +27,10 @@ const entrySchema = new mongoose.Schema({
     total : {
         type: mongoose.Types.Decimal128,
         required: true
+    },
+    totalTime : {
+        type: Number,
+        required : true
     }
 })
 

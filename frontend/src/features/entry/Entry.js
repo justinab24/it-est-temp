@@ -51,6 +51,7 @@ const Entry = ({ entryId }) => {
                     <td className={'tableCell'}>{entry.count}</td>
                     <td className={'tableCell'}>{roles.entities[entry.role].name}</td>
                     <td className={'tableCell'}>{entry.total.$numberDecimal}</td>
+                    <td className={'tableCell'}>{entry.totalTime}</td>
                     <td className={'tableCell'}>
                         <button     
                             className='icon-button table__button'

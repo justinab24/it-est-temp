@@ -11,7 +11,9 @@ const HomeFooter = () => {
 
     const onGoHomeClicked = () => navigate('/')
 
+
     let goHomeButton = null
+    let adminLink = null
 
     if (pathname !== '/') {
         goHomeButton = (
@@ -24,11 +26,23 @@ const HomeFooter = () => {
             </button>
         )
     }
+    if (pathname !== '/admin') {
+        if (pathname == '/admin/view') {
+            adminLink = (
+                <Link to="">Admin Login</Link>
+            )
+        } else {
+            adminLink = (
+                <Link to="admin">Admin Login</Link>
+            )
+
+        }
+    }
 
     const content = (
         <footer className='dash-footer'>
             {goHomeButton}
-            <Link to="admin">Admin Login</Link>
+            {adminLink}
         </footer>
     )  
 

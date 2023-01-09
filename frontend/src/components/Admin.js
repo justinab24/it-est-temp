@@ -3,10 +3,12 @@ import RolesList from '../features/admin/roleStuff/RolesList'
 import AddComponent from '../features/admin/compStuff/AddComponent'
 import AddRole from '../features/admin/roleStuff/AddRole'
 
+
 const Admin = () => {
 
     const content = (
         <div>
+            <br></br>
             <h1>Components</h1>
             <CompsList />
             <br></br>
