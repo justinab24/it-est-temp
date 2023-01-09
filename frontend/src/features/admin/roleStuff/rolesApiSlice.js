@@ -8,7 +8,7 @@ const initialState = rolesAdapter.getInitialState()
 export const rolesApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getRoles: builder.query({
-            query: () => '/roles',
+            query: () => '/view/roles',
             validateStatus: (response, result) => {
                 return response.status(200) && !result.isError
             },
@@ -30,7 +30,7 @@ export const rolesApiSlice = apiSlice.injectEndpoints({
         }),
         addNewRole: builder.mutation({
             query: initialRoleData => ({
-                url: '/roles',
+                url: '/view/roles',
                 method: 'POST',
                 body: {
                     ...initialRoleData
@@ -42,7 +42,7 @@ export const rolesApiSlice = apiSlice.injectEndpoints({
         }),
         updateRole: builder.mutation({
             query: initialRoleData => ({
-                url: '/roles',
+                url: '/view/roles',
                 method: 'PATCH',
                 body: {
                     ...initialRoleData
@@ -54,7 +54,7 @@ export const rolesApiSlice = apiSlice.injectEndpoints({
         }),
         deleteRole: builder.mutation({
             query: ({ id }) => ({
-                url: '/roles',
+                url: '/view/roles',
                 method: "DELETE",
                 body: { id }
             }),

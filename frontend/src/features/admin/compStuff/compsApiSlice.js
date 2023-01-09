@@ -8,7 +8,7 @@ const initialState = componentsAdapter.getInitialState()
 export const compsApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getComponents: builder.query({
-            query: () => '/components',
+            query: () => '/view/components',
             validateStatus: (response, result) => {
                 return response.status(200) && !result.isError
             },
@@ -34,7 +34,7 @@ export const compsApiSlice = apiSlice.injectEndpoints({
         }),
         addNewComponent: builder.mutation({
             query: initialComponentData => ({
-                url: '/components',
+                url: '/view/components',
                 method: 'POST',
                 body: {
                     ...initialComponentData
@@ -46,7 +46,7 @@ export const compsApiSlice = apiSlice.injectEndpoints({
         }),
         updateComponent: builder.mutation({
             query: initialComponentData => ({
-                url: '/components',
+                url: '/view/components',
                 method: 'PATCH',
                 body: {
                     ...initialComponentData
@@ -58,7 +58,7 @@ export const compsApiSlice = apiSlice.injectEndpoints({
         }),
         deleteComponent: builder.mutation({
             query: ({ id }) => ({
-                url: '/component',
+                url: '/view/components',
                 method: "DELETE",
                 body: { id }
             }),

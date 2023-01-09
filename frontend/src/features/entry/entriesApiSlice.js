@@ -8,7 +8,7 @@ const initialState = entriesAdapter.getInitialState()
 export const entriesApiSlice = apiSlice.injectEndpoints({
     endpoints: builder => ({
         getEntries: builder.query({
-            query: () => '',
+            query: () => '/entries',
             validateStatus: (response, result) => {
                 return response.status(200) && !result.isError
             },
@@ -31,7 +31,7 @@ export const entriesApiSlice = apiSlice.injectEndpoints({
         }),
         addNewEntry: builder.mutation({
             query: initialEntryData => ({
-                url: '',
+                url: '/entries',
                 method: 'POST',
                 body: {
                     ...initialEntryData
@@ -43,7 +43,7 @@ export const entriesApiSlice = apiSlice.injectEndpoints({
         }),
         updateEntry: builder.mutation({
             query: initialEntryData => ({
-                url: '/',
+                url: '/entries',
                 method: 'PATCH',
                 body: {
                     ...initialEntryData
@@ -55,7 +55,7 @@ export const entriesApiSlice = apiSlice.injectEndpoints({
         }),
         deleteEntry: builder.mutation({
             query: ({ id }) => ({
-                url: '',
+                url: '/entries',
                 method: "DELETE",
                 body: { id }
             }),

@@ -43,14 +43,18 @@ const EditEntryForm = ({entry}) => {
     const [roleId, setRoleId] = useState(entry.role)
 
     useEffect(() => {
-        console.log(isDelSuccess || isSuccess)
+        console.log("we are using the effect")
         if(isSuccess || isDelSuccess) {
             setComponentId('')
             setDescription('')
             setComplexity('')
             setCount('')
             setRoleId('')
-            navigate('')
+            console.log("success")
+            navigate('/')
+        }
+        else {
+            console.log("fail")
         }
     }, [isSuccess, isDelSuccess, navigate])
 
@@ -75,7 +79,7 @@ const EditEntryForm = ({entry}) => {
             compComplexity = component.vhighval
         }
         const total = (compRate * compComplexity * count) + (rate * compComplexity * count)
-        await updateEntry({comp: componentId, description, complexity, count, role: roleId, total})
+        await updateEntry({id: entry.id, comp: componentId, description, complexity, count, role: roleId, total})
     }
 
     const onDeleteEntryClicked = async () => {
@@ -122,13 +126,14 @@ const EditEntryForm = ({entry}) => {
 
     const content = (
             <div>
-                <form className="form" onSubmit={onSaveEntryClicked}>
+                <form className="form" onSubmit={e => e.preventDefault()}>
                 <div className="form__title-row">
                     <h2>Edit Entry Form</h2>
                     <div className="form__action-buttons">
                         <button
                             className="icon-button"
                             title="Save"
+                            onClick={onSaveEntryClicked}
                             disabled={!canSave}
                         >
                             <FontAwesomeIcon icon={faSave} />

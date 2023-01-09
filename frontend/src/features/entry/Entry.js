@@ -41,7 +41,7 @@ const Entry = ({ entryId }) => {
 
         if(entry) {
 
-            const handleEdit = () => navigate(`/entries/${entryId}`)
+            const handleEdit = () => navigate(`entries/${entryId}`)
     
             content =  (
                 <tr className='table__row component'>

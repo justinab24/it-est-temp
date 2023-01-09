@@ -12,19 +12,19 @@ import EditEntry from './features/entry/EditEntry';
 function App() {
   return (
     <Routes>
-      <Route path="/">
-        <Route index element={<HomeLayout />}/>
-        <Route element={<Prefetch />}>
-          <Route path="admin" element={<AdminBase />}>
-            <Route index element={<Login />}/>
-            <Route path="view">
-              <Route index element={<Admin />} />
-              <Route path="roles/:id" element={<EditRole />}/>
-              <Route path="components/:id" element={<EditComponent />}/>
+      <Route element={<Prefetch />}>
+        <Route path="/">
+          <Route index element={<HomeLayout />}/>
+            <Route path="admin" element={<AdminBase />}>
+              <Route index element={<Login />}/>
+              <Route path="view">
+                <Route index element={<Admin />} />
+                <Route path="roles/:id" element={<EditRole />}/>
+                <Route path="components/:id" element={<EditComponent />}/>
+              </Route>
             </Route>
-          </Route>
+          <Route path="entries/:id" element={<EditEntry />} />
         </Route>
-        <Route path="entries/:id" element={<EditEntry />} />
       </Route>
     </Routes> 
   );

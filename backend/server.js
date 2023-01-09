@@ -30,7 +30,7 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routes/root'))
 app.use('/view/components', require('./routes/compRoutes'))
 app.use('/view/roles', require('./routes/roleRoutes'))
-app.use('/view', require('./routes/entryRoutes'))
+app.use('/entries', require('./routes/entryRoutes'))
 
 app.all('*', (req, res) => {
     res.status(404)

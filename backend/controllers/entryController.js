@@ -28,10 +28,13 @@ const createNewEntry = asyncHandler (async (req, res) => {
 })
 
 const updateEntry = asyncHandler (async (req, res) => {
-    const { comp, description, complexity, count, role, total } = req.body
+    const { id, comp, description, complexity, count, role, total } = req.body
     if (!comp|| !description || !complexity || !count || !role || !total) {
         return res.status(400).json({message: "All fields are required"})
     }
+
+    console.log(id + " id")
+    console.log(count)
 
     const entry = await Entry.findById(id).exec()
 
